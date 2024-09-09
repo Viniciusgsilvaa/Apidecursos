@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Api V1 Django</h1>
+        <p>Choose an option below:</p>
+        <div class="links">
+            <a href="{% url 'cursos' %}" class="btn">Cursos Api v1</a>
+            <a href="{% url 'avaliacoes' %}" class="btn">Avaliacoes v1</a>
+            <a href="{% url 'professores' %}" class="btn">Professores v1</a>
+
+        </div>
+    </div>
+    <div><h1>-</h1></div>
+    <div class="container">
+        <h1>Welcome to Api V2 Django</h1>
+        <p>Choose an option below:</p>
+        <div class="links">
+            <a href="/api/v2/curso/" class="btn">Cursos Api v2</a>
+            <a href="/api/v2/avaliacao/" class="btn">Avaliacoes v2</a>
+            <a href="/api/v2/professor/" class="btn">Professores v2</a>
+
+        </div>
+    </div>
+</body>
+</html>

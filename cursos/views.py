@@ -1,32 +1,37 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from django.views.generic import TemplateView
 from rest_framework import generics
 
 from .models import Avaliacao, Curso, Professor
 from.serializers import AvaliacaoSerializer, CursoSerializer, ProfessorSerializer
 
-
-class AvaliacoesApiView(APIView):
-    """
-    API Avaliacoes
-    """
-    def get(self, request):
-        avaliacao = Avaliacao.objects.all()
-        serializer = AvaliacaoSerializer(avaliacao, many=True)
-        return Response(serializer.data)
-
-
-class CursosApiView(APIView):
+class IndexView(TemplateView):
+    template_name = 'index.html'
     
-    def get(self, request):
-        cursos = Curso.objects.all()
-        serializer = CursoSerializer(cursos, many=True)
-        return Response(serializer.data)
+
+class AvaliacoesApiView(generics.ListCreateAPIView):
+   queryset = Avaliacao.objects.all()
+   serializer_class = AvaliacaoSerializer
 
 
-class ProfessorApiView(APIView):
+class AvaliacaoApiView(generics.RetrieveUpdateDestroyAPIView):
+   queryset = Avaliacao.objects.all()
+   serializer_class = AvaliacaoSerializer
 
-    def get(self, request):
-        professor = Professor.objects.all()
-        serializer = ProfessorSerializer(professor, many=True)
-        return Response(serializer.data)
+
+class CursosApiView(generics.ListCreateAPIView):
+    queryset = Curso.objects.all()
+    serializer_class = CursoSerializer
+
+
+class CursoApiView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Curso.objects.all()
+    serializer_class = CursoSerializer
+
+class ProfessoresApiView(generics.ListCreateAPIView):
+    queryset = Professor.objects.all()
+    serializer_class = ProfessorSerializer
+
+
+class ProfessorApiView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Professor.objects.all()
+    serializer_class = ProfessorSerializer

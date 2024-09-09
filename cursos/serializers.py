@@ -30,7 +30,7 @@ class AvaliacaoSerializer(serializers.ModelSerializer):
             'email',
             'comentario',
             'avaliacao',
-            'publicacao',
+            'atualizacao',
             'ativo'
         )
 
@@ -44,6 +44,6 @@ class ProfessorSerializer(serializers.ModelSerializer):
             'nome',
             'registro',
             'curso',
-            'publicacao',
+            'atualizacao',
             'ativo'
         )
