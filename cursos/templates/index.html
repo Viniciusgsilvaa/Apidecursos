@@ -23,9 +23,9 @@
         <h1>Welcome to Api V2 Django</h1>
         <p>Choose an option below:</p>
         <div class="links">
-            <a href="/api/v2/curso/" class="btn">Cursos Api v2</a>
-            <a href="/api/v2/avaliacao/" class="btn">Avaliacoes v2</a>
-            <a href="/api/v2/professor/" class="btn">Professores v2</a>
+            <a href="{% url 'cursos-list' %}" class="btn">Cursos Api v2</a>
+            <a href="{% url 'avaliacoes-list' %}" class="btn">Avaliacoes v2</a>
+            <a href="{% url 'professores-list' %}" class="btn">Professores v2</a>
 
         </div>
     </div>
