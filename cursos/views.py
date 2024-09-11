@@ -1,3 +1,5 @@
+from django.forms import BaseModelForm
+from django.http import HttpResponse
 from django.views.generic import TemplateView
 from rest_framework import generics
 from rest_framework import viewsets
@@ -5,9 +7,24 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from .models import Avaliacao, Curso, Professor
 from.serializers import AvaliacaoSerializer, CursoSerializer, ProfessorSerializer
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from django.contrib.auth.models import User
+from .forms import UserRegisterForm
 
 class IndexView(TemplateView):
     template_name = 'index.html'
+
+
+class UserCreateView(CreateView):
+    model = User
+    forms = UserRegisterForm
+    template_name = 'register.html'
+    success_url = reverse_lazy('')
+
+    def form_valid(self, form):
+
+        return super().form_valid(form)
     
 """
 API V1
@@ -70,3 +87,5 @@ class CursoViewSet(viewsets.ModelViewSet):
 class ProfessorViewSet(viewsets.ModelViewSet):
     queryset = Professor.objects.all()
     serializer_class = ProfessorSerializer
+
+

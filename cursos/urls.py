@@ -10,6 +10,7 @@ from .views import (
     ProfessoresApiView,
     ProfessorApiView,
     ProfessorViewSet,
+    UserCreateView
 )
 
 router = SimpleRouter()
@@ -25,5 +26,6 @@ urlpatterns = [
     path('curso/<int:pk>/', CursoApiView.as_view(), name='curso'),
     path('cursos/', CursosApiView.as_view(), name='cursos'),
     path('professor/<int:pk>/', ProfessorApiView.as_view(), name='professor'),
-    path('professores', ProfessoresApiView.as_view(), name='professores')
+    path('professores', ProfessoresApiView.as_view(), name='professores'),
+    path('register/', UserCreateView.as_view(), name='register'),
 ]
